@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-a11y="off" data-carbon="off">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Appointments — Good Land Veterinary Clinic</title>
+  <meta name="description" content="Request an appointment, call, or email Good Land Veterinary Clinic in Fox Point, WI. Hours, map, and directions included." />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script>(function(){try{var d=document.documentElement,s=localStorage;d.dataset.theme=s.gl_theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');d.dataset.a11y=s.gl_a11y||'off';d.dataset.carbon=s.gl_carbon||'off';}catch(e){}})();</script>
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <!-- NEW: appointment-request form -->
+    <section class="section" id="request">
+      <div class="wrap">
+        <h1 class="section-head">Request an Appointment <span class="rec">UPDATED</span></h1>
+        <div class="section-rule"></div>
+        <p class="section-intro">Prefer not to call during the day? Send a request and we will get back to you. For same-day or urgent needs, please <a href="tel:+14143124978">call 414-312-4978</a>.</p>
+
+        <form class="form" style="margin:0 auto;" onsubmit="event.preventDefault(); this.reset(); document.getElementById('form-ok').hidden=false;">
+          <div class="field-row">
+            <div class="field">
+              <label for="owner">Your name <span class="req">(required)</span></label>
+              <input id="owner" name="owner" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="pet">Pet's name <span class="req">(required)</span></label>
+              <input id="pet" name="pet" type="text" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email <span class="req">(required)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="field">
+              <label for="phone">Phone <span class="req">(required)</span></label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="vet">Preferred veterinarian</label>
+              <select id="vet" name="vet">
+                <option value="">No preference</option>
+                <option>Dr. Becky Moss</option>
+                <option>Dr. Marta Kelly</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="time">Preferred day / time</label>
+              <input id="time" name="time" type="text" placeholder="e.g. weekday mornings" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="reason">Reason for the visit</label>
+            <textarea id="reason" name="reason" placeholder="Tell us briefly what your pet needs"></textarea>
+            <p class="hint">New client? You can also see <a href="new-clients.html">what to expect on your first visit</a>.</p>
+          </div>
+          <button class="btn btn-gold" type="submit">Send request</button>
+          <p id="form-ok" hidden role="status" style="margin-top:14px;color:var(--accent-strong);font-weight:700;">Thanks. This is a demo form, so nothing was sent, but a live version would deliver this to the clinic and confirm by email.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact band -->
+    <section class="contact-band">
+      <div class="wrap">
+        <div class="contact-grid">
+          <div>
+            <h2>Visit Us</h2>
+            <div class="info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div><p class="label">Address</p><a href="https://www.google.com/maps/dir/?api=1&destination=6854+N+Santa+Monica+Blvd+Fox+Point+WI+53217" target="_blank" rel="noopener">6854 N Santa Monica Blvd<br>Fox Point, WI 53217</a></div>
+            </div>
+            <h2 class="mt">Hours <span class="rec">UPDATED</span></h2>
+            <span class="open-now"><span class="dot"></span> Open today until 5:00 PM</span>
+            <table class="hours">
+              <tr class="today"><td>Monday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Tuesday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Wednesday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Thursday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Friday</td><td>8:00 AM – 5:00 PM</td></tr>
+              <tr><td>Saturday</td><td>Closed</td></tr>
+              <tr><td>Sunday</td><td>Closed</td></tr>
+            </table>
+            <h2 class="mt">Contact Us</h2>
+            <div class="info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>
+              <div><p class="label">Email &middot; tap to email <span class="rec">UPDATED</span></p><a href="mailto:goodlandvetclinic@gmail.com">goodlandvetclinic@gmail.com</a></div>
+            </div>
+            <div class="info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div><p class="label">Phone &middot; tap to call <span class="rec">UPDATED</span></p><a href="tel:+14143124978">414-312-4978</a></div>
+            </div>
+          </div>
+          <div>
+            <div class="map-card heavy-media">
+              <div class="heavy-content">
+                <iframe class="map-frame" title="Map to Good Land Veterinary Clinic" loading="lazy" data-src="https://www.google.com/maps?q=6854+N+Santa+Monica+Blvd,+Fox+Point,+WI+53217&output=embed"></iframe>
+              </div>
+              <div class="carbon-fallback">Map not loaded in low-carbon mode. <a href="https://www.google.com/maps/dir/?api=1&destination=6854+N+Santa+Monica+Blvd+Fox+Point+WI+53217" target="_blank" rel="noopener">Open directions in Google Maps</a>.</div>
+              <div class="map-actions"><a class="btn btn-gold" href="https://www.google.com/maps/dir/?api=1&destination=6854+N+Santa+Monica+Blvd+Fox+Point+WI+53217" target="_blank" rel="noopener">Get Directions <span class="rec">UPDATED</span></a></div>
+            </div>
+            <div class="emergency">
+              <h3>After-hours or emergency? <span class="rec">UPDATED</span></h3>
+              <p>If your pet has a medical emergency outside our open hours, please go directly to the nearest 24-hour emergency animal hospital, or call us at <a href="tel:+14143124978">414-312-4978</a> for guidance. <em>(Placeholder — confirm the clinic's preferred emergency referral partner.)</em></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
