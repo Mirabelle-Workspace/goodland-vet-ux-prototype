@@ -15,31 +15,78 @@
   <main id="main">
     <section class="section">
       <div class="wrap">
-        <h1 class="section-head">New Clients <span class="rec">UPDATED</span></h1>
+        <h1 class="section-head">New Clients</h1>
         <div class="section-rule"></div>
+        <div class="reco" data-note-title="Recommended new page: New Clients" data-note-pri="High" data-note-why="A dedicated New Clients page reduces first-visit anxiety with what to expect and what to bring, converting hesitant browsers into booked clients."><span class="reco-tag">Recommended new page</span> New Clients</div>
         <p class="section-intro">Welcome. We are glad you are considering Good Land for your pet's care. Here is what to expect so your first visit is easy and low-stress.</p>
 
-        <h2 style="color:var(--heading);max-width:760px;margin:8px auto 12px;">What to expect on your first visit</h2>
-        <ol class="steps" data-note-title="A dedicated New Clients page" data-note-pri="High" data-note-why="Reduces first-visit anxiety with what to expect and what to bring, converting hesitant browsers into booked clients.">
+        <h2 style="color:var(--heading);margin:8px 0 14px;">What to expect on your first visit</h2>
+        <ol class="steps">
           <li>A warm, Fear Free welcome designed to keep your pet calm and comfortable.</li>
           <li>A thorough exam and a conversation about your pet's history, diet, and any concerns.</li>
           <li>A clear, individualized plan, with time for your questions before you leave.</li>
         </ol>
 
-        <h2 style="color:var(--heading);max-width:760px;margin:34px auto 12px;">What to bring</h2>
-        <ul class="trust-list" style="max-width:760px;margin:0 auto;">
+        <h2 style="color:var(--heading);margin:34px 0 14px;">What to bring</h2>
+        <ul class="trust-list" style="margin:0;">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Any prior medical records or vaccination history</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>A current medication and food list</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span>Your questions, written down so nothing is forgotten</span></li>
         </ul>
 
-        <div class="emergency" style="max-width:760px;margin:34px auto 0;">
+        <div class="emergency" style="margin:34px 0 0;">
           <p style="margin:0;"><strong>Note for the clinic:</strong> this page is a recommended addition. Confirm new-patient details, intake-form fields, and whether you are currently accepting new patients before publishing.</p>
         </div>
 
-        <p class="section-intro" style="margin-top:34px;">Have other questions? Browse our <a href="faq.html">Pet Care FAQ</a>.</p>
+        <div class="center-cta"><a class="btn btn-gold" href="#intake">Become a new client</a></div>
+      </div>
+    </section>
 
-        <div class="center-cta"><a class="btn btn-gold" href="get-in-touch.html#request">Become a new client</a></div>
+    <section class="section alt" id="intake">
+      <div class="wrap">
+        <h2 class="section-head">New-client intake form</h2>
+        <div class="section-rule"></div>
+        <p class="section-intro">Fill this out ahead of your first visit and we will have everything ready when you arrive. Once submitted, it becomes your new-client request. <em>(Demo form &mdash; submissions are not stored.)</em></p>
+
+        <form class="form" data-note-title="New-patient intake form" data-note-pri="High" data-note-why="Lets new clients complete their paperwork before the first visit, so check-in is faster and the clinic already has the pet's history. The completed intake becomes the new-client request." onsubmit="event.preventDefault(); this.reset(); var ok=document.getElementById('intake-ok'); ok.hidden=false; ok.scrollIntoView({behavior:'smooth',block:'center'});">
+          <h3 style="color:var(--heading);margin:0 0 12px;font-size:1.05rem;">About you</h3>
+          <div class="field-row">
+            <div class="field"><label for="o-name">Your name <span class="req">(required)</span></label><input id="o-name" name="owner" type="text" autocomplete="name" required /></div>
+            <div class="field"><label for="o-email">Email <span class="req">(required)</span></label><input id="o-email" name="email" type="email" autocomplete="email" required /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="o-phone">Phone <span class="req">(required)</span></label><input id="o-phone" name="phone" type="tel" autocomplete="tel" required /></div>
+            <div class="field"><label for="o-addr">Home address</label><input id="o-addr" name="address" type="text" autocomplete="street-address" /></div>
+          </div>
+
+          <h3 style="color:var(--heading);margin:24px 0 12px;font-size:1.05rem;">About your pet</h3>
+          <div class="field-row">
+            <div class="field"><label for="p-name">Pet's name <span class="req">(required)</span></label><input id="p-name" name="pet" type="text" required /></div>
+            <div class="field"><label for="p-species">Species</label><select id="p-species" name="species"><option>Dog</option><option>Cat</option><option>Other</option></select></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="p-breed">Breed</label><input id="p-breed" name="breed" type="text" /></div>
+            <div class="field"><label for="p-age">Age</label><input id="p-age" name="age" type="text" placeholder="e.g. 3 years" /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="p-sex">Sex</label><select id="p-sex" name="sex"><option>Unknown</option><option>Female</option><option>Male</option></select></div>
+            <div class="field"><label for="p-fixed">Spayed or neutered?</label><select id="p-fixed" name="fixed"><option>Not sure</option><option>Yes</option><option>No</option></select></div>
+          </div>
+          <div class="field"><label for="p-meds">Current medications &amp; food</label><textarea id="p-meds" name="meds" placeholder="List any medications, supplements, and the food your pet eats"></textarea></div>
+          <div class="field"><label for="p-prior">Previous clinic (so we can request records)</label><input id="p-prior" name="prior" type="text" /></div>
+          <div class="field"><label for="p-reason">Reason for the visit or any concerns</label><textarea id="p-reason" name="reason"></textarea></div>
+
+          <h3 style="color:var(--heading);margin:24px 0 12px;font-size:1.05rem;">Your visit</h3>
+          <div class="field-row">
+            <div class="field"><label for="v-vet">Preferred veterinarian</label><select id="v-vet" name="vet"><option value="">No preference</option><option>Dr. Becky Moss</option><option>Dr. Marta Kelly</option></select></div>
+            <div class="field"><label for="v-time">Preferred day / time</label><input id="v-time" name="time" type="text" placeholder="e.g. weekday mornings" /></div>
+          </div>
+
+          <button class="btn btn-gold" type="submit">Submit intake &amp; become a new client</button>
+          <p id="intake-ok" hidden role="status" style="margin-top:14px;color:var(--accent-strong);font-weight:700;">Thanks. This is a demo, so nothing was sent. In a live version, your intake would be saved and attached to your new-client request, so your first visit is ready to go.</p>
+        </form>
+
+        <p class="section-intro" style="margin:28px 0 0;">Have other questions? Browse our <a href="faq.html">Pet Care FAQ</a>.</p>
       </div>
     </section>
   </main>

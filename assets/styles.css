@@ -216,8 +216,8 @@ main { display: block; }
 .svc-card p { margin: 0; color: var(--text-soft); }
 
 /* Expandable service cards (accordion) — open to plain-language education */
-.acc { max-width: 100%; }
-.acc details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 14px; overflow: hidden; }
+.acc { max-width: 100%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+.acc > details { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 0; overflow: hidden; }
 .acc summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 16px; padding: 18px 22px; }
 .acc summary::-webkit-details-marker { display: none; }
 .acc summary .circle { width: 54px; height: 54px; border-radius: 50%; background: var(--brand); color: var(--accent); display: grid; place-items: center; flex: 0 0 54px; box-shadow: inset 0 0 0 3px rgba(255,255,255,0.22); }
@@ -228,20 +228,49 @@ main { display: block; }
 .acc details[open] summary .chev { transform: rotate(180deg); }
 .acc summary:hover h3 { color: var(--accent-strong); }
 .acc summary:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; border-radius: var(--radius); }
+.acc summary .cat-text { flex: 1; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.acc summary .cat-text h3 { margin: 0; }
+.acc summary .cat-desc { font-size: 0.84rem; font-weight: 400; color: var(--text-soft); line-height: 1.4; }
+/* Category tiles read as cards, not dropdowns: hide the category chevron, add a card hover */
+.acc.faq > details > summary .chev { display: none; }
+.acc.faq > details > summary { cursor: pointer; transition: background var(--motion); flex-direction: column; align-items: center; justify-content: flex-start; text-align: center; gap: 14px; padding: 28px 24px; min-height: 184px; }
+.acc.faq > details > summary .cat-text { flex: 0 0 auto; align-items: center; }
+.acc.faq > details > summary .cat-desc { max-width: 360px; }
+.acc.faq > details > summary:hover { background: var(--section-soft); }
+/* Clear "open me" CTA pinned to the bottom-center of each category card */
+.acc.faq > details > summary::after { content: "View answers"; margin-top: auto; display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.02em; color: var(--accent-strong); background: rgba(224, 163, 44, 0.16); padding: 7px 16px; border-radius: 999px; }
+.acc.faq > details > summary:hover::after { background: rgba(224, 163, 44, 0.28); }
+.acc.faq > details[open] > summary::after { content: "Hide answers"; }
+.acc.faq > details[open] > summary { border-bottom: 1px solid var(--border); }
+.acc.faq .acc-body { padding-left: 24px; }
+
+/* Nested per-question dropdowns inside a category card */
+.acc.faq .qna { border-top: 1px solid var(--border); }
+.acc.faq .qna summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px; padding: 13px 0; font-weight: 600; color: var(--heading); font-size: 0.96rem; }
+.acc.faq .qna summary::-webkit-details-marker { display: none; }
+.acc.faq .qna summary:hover { color: var(--accent-strong); }
+.acc.faq .qna summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+.acc.faq .qna .qchev { margin-left: auto; color: var(--text-soft); transition: transform var(--motion); flex: 0 0 auto; }
+.acc.faq .qna .qchev svg { width: 18px; height: 18px; display: block; }
+.acc.faq .qna[open] .qchev { transform: rotate(180deg); }
+.acc.faq .qna .qna-body { padding: 0 0 14px; color: var(--text-soft); }
+.acc.faq .qna .qna-body p { margin: 0 0 8px; }
+.acc.faq .qna .qna-body p:last-child { margin-bottom: 0; }
+.acc.faq .qna .qna-body ul { margin: 6px 0 8px; padding-left: 18px; }
 .acc .acc-body { padding: 2px 24px 22px 92px; color: var(--text-soft); }
 .acc .acc-body p { margin: 0 0 10px; }
 .acc .acc-body ul { margin: 0 0 10px; padding-left: 18px; }
 .acc .acc-body li { margin-bottom: 5px; }
 .acc .acc-body p:last-child, .acc .acc-body ul:last-child { margin-bottom: 0; }
-@media (max-width: 560px) {
+@media (max-width: 700px) {
+  .acc { grid-template-columns: 1fr; }
   .acc .acc-body { padding-left: 24px; }
   .acc summary .circle { width: 46px; height: 46px; flex-basis: 46px; }
 }
 
 /* FAQ accordion variant (question + chevron, no icon circle) */
-.acc.faq summary { gap: 12px; }
-.acc.faq summary h3 { font-size: 1.04rem; }
-.acc.faq .acc-body { padding-left: 22px; }
+.acc.faq summary { gap: 16px; }
+.acc.faq summary h3 { font-size: 1.06rem; }
 .acc.faq .qa { margin: 0 0 18px; }
 .acc.faq .qa:last-of-type { margin-bottom: 2px; }
 .acc.faq .q { color: var(--heading); font-weight: 700; margin: 0 0 5px; }
