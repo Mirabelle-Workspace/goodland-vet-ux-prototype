@@ -241,11 +241,13 @@ main { display: block; }
 .acc.faq summary { gap: 12px; }
 .acc.faq summary h3 { font-size: 1.04rem; }
 .acc.faq .acc-body { padding-left: 22px; }
-.faq-group-title { color: var(--heading); font-size: 1.16rem; margin: 32px 0 14px; }
-.faq-group-title:first-of-type { margin-top: 6px; }
-
-/* Slightly wider header so the full nav fits without wrapping */
-.util-bar .wrap, header.site .wrap { max-width: 1160px; }
+.acc.faq .qa { margin: 0 0 18px; }
+.acc.faq .qa:last-of-type { margin-bottom: 2px; }
+.acc.faq .q { color: var(--heading); font-weight: 700; margin: 0 0 5px; }
+.faq-sources { margin: 14px 0 0; padding-top: 10px; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-soft); }
+.foot-links { margin-top: 8px; font-size: 0.85rem; }
+.foot-links a { color: var(--heading); text-decoration: none; }
+.foot-links a:hover { text-decoration: underline; }
 
 /* Team */
 .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 760px; margin: 0 auto; }
@@ -360,6 +362,20 @@ footer.site { background: var(--section); color: var(--heading); padding: 26px 0
 
 .demo-banner { background: var(--band-soft); color: var(--on-band); font-size: 0.8rem; text-align: center; padding: 8px 16px; }
 .demo-banner strong { color: var(--accent); }
+
+/* ---- Audit notes (annotated explainer mode) ---- */
+.notes-banner { display: none; background: var(--band-soft); color: var(--on-band); font-size: 0.8rem; text-align: center; padding: 9px 16px; }
+[data-notes="on"] .notes-banner { display: block; }
+.notes-banner strong { color: var(--accent); }
+[data-notes="on"] [data-note-title] { outline: 2px dashed var(--accent); outline-offset: 5px; border-radius: 8px; }
+.audit-note { display: flex; gap: 12px; align-items: flex-start; background: var(--section-soft); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: var(--radius); padding: 14px 16px; margin: 18px 0 22px; box-shadow: var(--shadow); max-width: 640px; }
+.audit-note .an-num { flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: #182441; font-weight: 800; font-size: 0.82rem; display: grid; place-items: center; }
+.audit-note .an-title { margin: 0 0 4px; color: var(--heading); font-weight: 700; font-size: 0.96rem; }
+.audit-note .an-why { margin: 0; color: var(--text-soft); font-size: 0.9rem; line-height: 1.5; }
+.audit-note .an-pri { display: inline-block; font-size: 0.6rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 7px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+.an-high { background: rgba(224,163,44,0.22); color: var(--accent-strong); }
+.an-medium { background: rgba(63,111,176,0.20); color: #5f7fae; }
+.an-future, .an-low { background: var(--section); color: var(--text-soft); }
 
 /* ---- Accessibility mode ---- */
 [data-a11y="on"] { font-size: 112.5%; }

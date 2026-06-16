@@ -13,7 +13,6 @@
     { href: "services.html", label: "Services", page: "services" },
     { href: "prescriptions.html", label: "Prescriptions", page: "rx" },
     { href: "new-clients.html", label: "New Clients", page: "new", isNew: true },
-    { href: "faq.html", label: "FAQ", page: "faq" },
     { href: "get-in-touch.html", label: "Contact", page: "contact" }
   ];
   var current = document.body.getAttribute("data-page") || "home";
@@ -73,6 +72,7 @@
       '<footer class="site"><div class="wrap foot">' +
         '<div class="who"><b>Good Land Veterinary Clinic</b>' +
           '<div>6854 N Santa Monica Blvd, Fox Point, WI 53217 &middot; <a href="' + TEL + '">' + PHONE + '</a> &middot; <a href="' + MAILTO + '">' + EMAIL + '</a></div>' +
+          '<div class="foot-links"><a href="faq.html">FAQ</a> &middot; <a href="new-clients.html">New Clients</a> &middot; <a href="get-in-touch.html">Contact</a></div>' +
         '</div>' +
         '<div class="social">' +
           '<a href="' + MAILTO + '" aria-label="Email the clinic">' + I.mail + '</a>' +
