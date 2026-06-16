@@ -13,6 +13,7 @@
     { href: "services.html", label: "Services", page: "services" },
     { href: "prescriptions.html", label: "Prescriptions", page: "rx" },
     { href: "new-clients.html", label: "New Clients", page: "new", isNew: true },
+    { href: "faq.html", label: "FAQ", page: "faq" },
     { href: "get-in-touch.html", label: "Contact", page: "contact" }
   ];
   var current = document.body.getAttribute("data-page") || "home";

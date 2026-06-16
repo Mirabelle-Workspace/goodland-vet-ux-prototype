@@ -237,6 +237,16 @@ main { display: block; }
   .acc summary .circle { width: 46px; height: 46px; flex-basis: 46px; }
 }
 
+/* FAQ accordion variant (question + chevron, no icon circle) */
+.acc.faq summary { gap: 12px; }
+.acc.faq summary h3 { font-size: 1.04rem; }
+.acc.faq .acc-body { padding-left: 22px; }
+.faq-group-title { color: var(--heading); font-size: 1.16rem; margin: 32px 0 14px; }
+.faq-group-title:first-of-type { margin-top: 6px; }
+
+/* Slightly wider header so the full nav fits without wrapping */
+.util-bar .wrap, header.site .wrap { max-width: 1160px; }
+
 /* Team */
 .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 760px; margin: 0 auto; }
 .member { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); text-align: left; display: flex; flex-direction: column; }
