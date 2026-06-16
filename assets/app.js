@@ -28,6 +28,7 @@
     leaf: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-6 7-9 16-9 0 9-3 16-9 16z"/><path d="M4 20c2-4 5-7 9-9"/></svg>',
     menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
     close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6 6 18"/></svg>',
+    note: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8M8 13h5"/></svg>',
     fb: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v7h3v-7h2.5l.5-3H14v-1.5c0-.6.4-1 1-1z"/></svg>',
     ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
     logo: '<svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="15" fill="#1f2d54"/><path d="M6 20a10 9 0 0 1 20 0z" fill="#e0a32c"/><circle cx="16" cy="12" r="2.4" fill="#fff"/><circle cx="11.5" cy="13.5" r="1.7" fill="#fff"/><circle cx="20.5" cy="13.5" r="1.7" fill="#fff"/><circle cx="13.6" cy="9.6" r="1.5" fill="#fff"/><circle cx="18.4" cy="9.6" r="1.5" fill="#fff"/><path d="M6 23h20M8 25.5h16" stroke="#3d6fb0" stroke-width="1.4" stroke-linecap="round"/></svg>'
@@ -46,6 +47,7 @@
     host.innerHTML =
       '<div class="util-bar"><div class="wrap">' +
         '<span class="label">Display options (demo):</span>' +
+        '<button class="toggle" id="t-notes" type="button" aria-pressed="false">' + I.note + ' Audit notes <span class="state">Off</span></button>' +
         '<button class="toggle" id="t-dark" type="button" aria-pressed="false">' + I.moon + ' Dark <span class="state">Off</span></button>' +
         '<button class="toggle" id="t-a11y" type="button" aria-pressed="false">' + I.access + ' Accessibility <span class="state">Off</span></button>' +
         '<button class="toggle" id="t-carbon" type="button" aria-pressed="false">' + I.leaf + ' Low-carbon <span class="state">Off</span></button>' +
@@ -81,6 +83,7 @@
         '</div>' +
         '<div class="fearfree">FEAR FREE<span>Certified Professional</span></div>' +
       '</div></footer>' +
+      '<div class="notes-banner"><strong>Audit notes on:</strong> highlighted items explain what changed and why. Toggle off for the clean client view.</div>' +
       '<div class="carbon-banner">Low-carbon mode on: map and heavy media are not loaded, animations are off, and a low-energy dark palette is used to reduce data and power.</div>' +
       '<div class="mobile-bar" aria-label="Quick actions"><div class="row">' +
         '<a class="mb-call" href="' + TEL + '" aria-label="Call the clinic">' + I.phone + 'Call</a>' +
@@ -115,10 +118,30 @@
         var next2 = d.dataset[attr] === "on" ? "off" : "on";
         d.dataset[attr] = next2; try { localStorage[key] = next2; } catch (e) {}
         if (attr === "carbon") applyMedia();
+        if (attr === "notes") applyNotes();
       }
       paint();
     });
     paint();
+  }
+
+  /* ---- Audit notes: inject explanation cards next to annotated elements ---- */
+  function applyNotes() {
+    document.querySelectorAll(".audit-note").forEach(function (c) { c.remove(); });
+    if (d.dataset.notes !== "on") return;
+    var n = 0;
+    document.querySelectorAll("[data-note-title]").forEach(function (el) {
+      n++;
+      var pri = el.getAttribute("data-note-pri") || "";
+      var priHtml = pri ? ' <span class="an-pri an-' + pri.toLowerCase() + '">' + pri + "</span>" : "";
+      var card = document.createElement("div");
+      card.className = "audit-note";
+      card.innerHTML =
+        '<span class="an-num" aria-hidden="true">' + n + "</span>" +
+        '<div class="an-body"><p class="an-title">' + el.getAttribute("data-note-title") + priHtml + "</p>" +
+        '<p class="an-why">' + el.getAttribute("data-note-why") + "</p></div>";
+      el.insertAdjacentElement("afterend", card);
+    });
   }
 
   /* ---- Mobile menu (hamburger) ---- */
@@ -141,11 +164,14 @@
     var bot = document.getElementById("site-footer");
     if (top) renderHeader(top);
     if (bot) renderFooter(bot);
+    try { d.dataset.notes = localStorage.gl_notes || "off"; } catch (e) { d.dataset.notes = "off"; }
     setupToggle("t-dark", "gl_theme", "theme");
     setupToggle("t-a11y", "gl_a11y", "a11y");
     setupToggle("t-carbon", "gl_carbon", "carbon");
+    setupToggle("t-notes", "gl_notes", "notes");
     setupMenu();
     applyMedia();
+    applyNotes();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);

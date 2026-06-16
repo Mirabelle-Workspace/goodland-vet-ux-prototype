@@ -181,12 +181,12 @@ main { display: block; }
 .section.alt { background: var(--section-soft); }
 .section-head { text-align: left; color: var(--heading); font-size: 1.6rem; letter-spacing: 0.06em; margin: 0 0 8px; font-weight: 600; }
 .section-rule { width: 56px; height: 2px; background: var(--accent); margin: 0 0 30px; }
-.section-intro { text-align: left; max-width: 65ch; margin: 0 0 30px; color: var(--text-soft); }
+.section-intro { text-align: left; max-width: 100%; margin: 0 0 30px; color: var(--text-soft); }
 
 /* Welcome */
 .welcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; }
-.welcome-copy .lead { font-size: 1.16rem; line-height: 1.5; color: var(--heading); font-weight: 600; margin: 0 0 16px; max-width: 60ch; }
-.welcome-copy p { margin: 0 0 16px; color: var(--text); max-width: 62ch; }
+.welcome-copy .lead { font-size: 1.16rem; line-height: 1.5; color: var(--heading); font-weight: 600; margin: 0 0 16px; max-width: 600px; }
+.welcome-copy p { margin: 0 0 16px; color: var(--text); max-width: 620px; }
 .trust-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 11px; }
 .trust-list li { display: flex; align-items: flex-start; gap: 11px; color: var(--text); }
 .trust-list svg { width: 21px; height: 21px; color: var(--accent-strong); flex: 0 0 21px; margin-top: 2px; }
@@ -279,7 +279,7 @@ main { display: block; }
 .bio .photo { height: 340px; border-radius: var(--radius); background: linear-gradient(135deg, #46618a, #6f8aa6); display: grid; place-items: center; color: #fff; box-shadow: var(--shadow); }
 .bio h1 { margin: 0 0 4px; color: var(--heading); font-size: 1.8rem; }
 .bio .role { color: var(--accent-strong); font-weight: 600; margin: 0 0 18px; }
-.bio p { color: var(--text); max-width: 64ch; }
+.bio p { color: var(--text); max-width: 640px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
 .chip { background: var(--section); color: var(--heading); font-size: 0.78rem; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
 

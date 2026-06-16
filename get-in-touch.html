@@ -20,7 +20,7 @@
         <div class="section-rule"></div>
         <p class="section-intro">Prefer not to call during the day? Send a request and we will get back to you. For same-day or urgent needs, please <a href="tel:+14143124978">call 414-312-4978</a>.</p>
 
-        <form class="form" style="margin:0 auto;" onsubmit="event.preventDefault(); this.reset(); document.getElementById('form-ok').hidden=false;">
+        <form class="form" data-note-title="Online appointment request" data-note-pri="High" data-note-why="Captures after-hours and at-work intent that a phone-only path loses. Preferred vet and time make it effortless, and it works on any device." style="margin:0 auto;" onsubmit="event.preventDefault(); this.reset(); document.getElementById('form-ok').hidden=false;">
           <div class="field-row">
             <div class="field">
               <label for="owner">Your name <span class="req">(required)</span></label>
@@ -105,7 +105,7 @@
               <div class="carbon-fallback">Map not loaded in low-carbon mode. <a href="https://www.google.com/maps/dir/?api=1&destination=6854+N+Santa+Monica+Blvd+Fox+Point+WI+53217" target="_blank" rel="noopener">Open directions in Google Maps</a>.</div>
               <div class="map-actions"><a class="btn btn-gold" href="https://www.google.com/maps/dir/?api=1&destination=6854+N+Santa+Monica+Blvd+Fox+Point+WI+53217" target="_blank" rel="noopener">Get Directions <span class="rec">UPDATED</span></a></div>
             </div>
-            <div class="emergency">
+            <div class="emergency" data-note-title="After-hours guidance" data-note-pri="High" data-note-why="Tells owners what to do in a crisis. Expected of a healthcare provider and a real trust signal.">
               <h3>After-hours or emergency? <span class="rec">UPDATED</span></h3>
               <p>If your pet has a medical emergency outside our open hours, please go directly to the nearest 24-hour emergency animal hospital, or call us at <a href="tel:+14143124978">414-312-4978</a> for guidance. <em>(Placeholder — confirm the clinic's preferred emergency referral partner.)</em></p>
             </div>
