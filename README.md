@@ -24,12 +24,16 @@ Open `index.html` in any browser. No build step or dependencies. Deploys as-is o
 - Real-image placeholders clearly marked for the clinic's photos
 
 ## Display modes (toggles, top of every page)
+- **Audit notes** — turns the prototype into a self-explaining walkthrough. Highlights each recommended element and injects a numbered card describing *what changed, why it matters, and its priority (High/Medium)*. "Recommended" markers also appear for audit items not yet built (e.g., client testimonials, per-service FAQs, full accessibility audit). Toggle off for the clean client view.
 - **Dark mode** — full dark theme; also respects the visitor's system setting
 - **Accessibility** — larger text/spacing, underlined links, 48px tap targets, stronger focus outlines
 - **Low-carbon** — low-energy dark palette, animations off, heavy media (the map) not loaded
 
 Preferences persist via `localStorage`; reduced-motion is always respected.
 
+### How Audit notes works
+Annotated elements carry `data-note-title`, `data-note-why`, and `data-note-pri` attributes. When the toggle is on, `app.js` (`applyNotes()`) outlines each element and injects an explanation card directly beneath it, numbered in document order. Elements with the `.reco` class are recommendations not yet built into the prototype and surface only in this mode. This keeps the written audit and the visual prototype in sync — a non-technical reader sees each recommendation working in the real UI.
+
 ## Structure
-- `assets/styles.css` — all styling + the light/dark/accessibility/low-carbon tokens
-- `assets/app.js` — shared header/footer/menu/mobile bar + toggle logic
+- `assets/styles.css` — all styling + the light / dark / accessibility / low-carbon / audit-notes tokens
+- `assets/app.js` — shared header/footer/menu/mobile bar, toggle logic, and the audit-notes engine (`applyNotes()`)

@@ -52,7 +52,7 @@
         '<button class="toggle" id="t-a11y" type="button" aria-pressed="false">' + I.access + ' Accessibility <span class="state">Off</span></button>' +
         '<button class="toggle" id="t-carbon" type="button" aria-pressed="false">' + I.leaf + ' Low-carbon <span class="state">Off</span></button>' +
       '</div></div>' +
-      '<div class="demo-banner"><strong>Prototype</strong> with audit recommendations applied. Gold <strong>UPDATED</strong> tags mark additions. Use the toggles above for dark / accessibility / low-carbon modes.</div>' +
+      '<div class="demo-banner"><strong>Prototype</strong> with audit recommendations applied. Turn on <strong>Audit notes</strong> (top-left) to see what changed and why. Toggles above also offer dark, accessibility, and low-carbon modes.</div>' +
       '<header class="site"><div class="wrap bar">' +
         '<a class="brand" href="index.html" aria-label="Good Land Veterinary Clinic home">' +
           '<span class="logo" aria-hidden="true">' + I.logo + '</span>' +
@@ -159,6 +159,20 @@
     mob.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setOpen(false); }); });
   }
 
+  /* ---- FAQ accordions: only one open per group ---- */
+  function setupAccordions() {
+    document.querySelectorAll(".acc.faq").forEach(function (group) {
+      group.querySelectorAll("details").forEach(function (item) {
+        item.addEventListener("toggle", function () {
+          if (!item.open) return;
+          group.querySelectorAll("details[open]").forEach(function (openItem) {
+            if (openItem !== item) openItem.open = false;
+          });
+        });
+      });
+    });
+  }
+
   function init() {
     var top = document.getElementById("site-header");
     var bot = document.getElementById("site-footer");
@@ -170,6 +184,7 @@
     setupToggle("t-carbon", "gl_carbon", "carbon");
     setupToggle("t-notes", "gl_notes", "notes");
     setupMenu();
+    setupAccordions();
     applyMedia();
     applyNotes();
   }
